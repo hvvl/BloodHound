@@ -16752,6 +16752,89 @@
         }
       }
     },
+    "/api/v2/clients/{client_id}/management": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/header.prefer"
+        },
+        {
+          "name": "client_id",
+          "description": "Client ID",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "QueueClientManagementOperation",
+        "summary": "Queues a management operation",
+        "description": "Endpoint for users to queue a management operation for a client.\n",
+        "tags": [
+          "Clients",
+          "Enterprise"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/model.client-management-operation-queue-request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/model.client-management-operation"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/model.client-management-operation"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal-server-error"
+          }
+        }
+      }
+    },
     "/api/v2/clients/management/start": {
       "parameters": [
         {
@@ -23906,23 +23989,31 @@
           }
         ]
       },
-      "model.client-management-operation-start-request": {
-        "type": "object",
-        "required": [
-          "operation_id"
-        ],
-        "properties": {
-          "operation_id": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      },
       "enum.client-management-operation-type": {
         "type": "string",
         "enum": [
           "support_bundle"
         ]
+      },
+      "model.client-management-operation-queue-request": {
+        "type": "object",
+        "required": [
+          "operation_type",
+          "execution_time"
+        ],
+        "properties": {
+          "operation_type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/enum.client-management-operation-type"
+              }
+            ]
+          },
+          "execution_time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
       },
       "enum.client-management-operation-status": {
         "type": "string",
@@ -24008,6 +24099,18 @@
             }
           }
         ]
+      },
+      "model.client-management-operation-start-request": {
+        "type": "object",
+        "required": [
+          "operation_id"
+        ],
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
       },
       "model.client-management-operation-end-request": {
         "type": "object",
