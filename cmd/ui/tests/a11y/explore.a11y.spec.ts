@@ -14,9 +14,35 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { expectNoAccessibilityViolations, test } from '../fixtures';
+import { expect, expectNoAccessibilityViolations, test } from '../fixtures';
 
 test.describe('Explore page accessibility', () => {
+    test('focuses the node search field on navigation', async ({ page }) => {
+        await page.goto('/ui/explore');
+
+        await expect(page.getByLabel('Search Nodes')).toBeFocused();
+    });
+
+    test('node search no-results state has no detectable WCAG A/AA violations', async ({
+        page,
+        makeAxeBuilder,
+    }, testInfo) => {
+        const searchTerm = 'zzzznonexistentnode9999';
+        await page.route('**/api/v2/search**', async (route) => {
+            await route.fulfill({ json: { data: [] } });
+        });
+        await page.goto('/ui/explore');
+
+        const searchField = page.getByLabel('Search Nodes');
+        await expect(searchField).toBeFocused();
+        await searchField.fill(searchTerm);
+        const noResultsMessage = `No results found for "${searchTerm}"`;
+
+        await expect(page.getByText(noResultsMessage)).toBeVisible();
+        const results = await makeAxeBuilder().include('#content-wrapper').analyze();
+        await expectNoAccessibilityViolations(testInfo, results, { page });
+    });
+
     test('explore page has no detectable WCAG A/AA violations', async ({ page, makeAxeBuilder }, testInfo) => {
         await page.goto('/ui/explore');
 

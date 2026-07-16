@@ -111,8 +111,7 @@ export default defineConfig<TestOptions>({
                 testMatch: '**/*.a11y.spec.ts',
                 use: {
                     ...device,
-                    storageState: authStorageStateFor(theme),
-                    theme,
+                    storageState: path.resolve(__dirname, authStorageStateFor(theme)),
                 },
                 dependencies: ['setup'],
             }))
