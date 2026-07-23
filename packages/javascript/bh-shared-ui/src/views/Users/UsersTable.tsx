@@ -26,7 +26,7 @@ import { useBloodHoundUsers, useSelf } from '../../hooks/useBloodHoundUsers';
 import { LuxonFormat, Permission, apiClient } from '../../utils';
 import UserActionsMenu from './UserActionsMenu';
 
-type UserStatus = 'Deleted' | 'Disabled' | 'Active';
+type UserStatus = '已删除' | '已禁用' | '正常';
 
 const getUserStatusText = (user: any): UserStatus => {
     if (user.deleted_at.Valid) {
