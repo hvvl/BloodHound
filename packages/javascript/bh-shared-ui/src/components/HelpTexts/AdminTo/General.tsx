@@ -23,23 +23,19 @@ const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName }) => {
     return (
         <>
             <Typography variant='body2'>
-                {groupSpecialFormat(sourceType, sourceName)} admin rights to the computer {targetName}.
+                {groupSpecialFormat(sourceType, sourceName)} 对计算机的管理员权限 {targetName}.
             </Typography>
 
             <Typography variant='body2'>
-                By default, administrators have several ways to perform remote code execution on Windows systems,
-                including via RDP, WMI, WinRM, the Service Control Manager, and remote DCOM execution.
+                默认情况下，管理员有多种方式在 Windows 系统上执行远程代码，包括通过 RDP、WMI、WinRM、服务控制管理器和远程 DCOM 执行。
             </Typography>
 
             <Typography variant='body2'>
-                Further, administrators have several options for impersonating other users logged onto the system,
-                including plaintext password extraction, token impersonation, and injecting into processes running as
-                another user.
+                此外，管理员有多种选项来模拟登录到系统的其他用户，包括提取明文密码、令牌模拟以及注入到以其他用户身份运行的进程中。
             </Typography>
 
             <Typography variant='body2'>
-                Finally, administrators can often disable host-based security controls that would otherwise prevent the
-                aforementioned techniques.
+                最后，管理员通常可以禁用基于主机的安全控制，这些控制本来会阻止上述技术。
             </Typography>
         </>
     );

@@ -43,7 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, onLoginViaSSO, loading 
                     <TextField
                         id='username'
                         name='username'
-                        label='Email Address'
+                        label='邮箱地址'
                         fullWidth
                         variant='outlined'
                         value={username}
@@ -55,7 +55,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, onLoginViaSSO, loading 
                     <TextField
                         id='password'
                         name='password'
-                        label='Password'
+                        label='密码'
                         type='password'
                         fullWidth
                         variant='outlined'
@@ -65,7 +65,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, onLoginViaSSO, loading 
                 </Grid>
                 <Grid item xs={8}>
                     <Button size='large' type='submit' className='w-full' disabled={loading}>
-                        {loading ? 'LOGGING IN' : 'LOGIN'}
+                        {loading ? '登录中' : '登录'}
                     </Button>
                 </Grid>
                 {onLoginViaSSO !== undefined && (
@@ -77,7 +77,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, onLoginViaSSO, loading 
                             onClick={onLoginViaSSO}
                             className='w-full'
                             disabled={loading}>
-                            LOGIN VIA SSO
+                            通过 SSO 登录
                         </Button>
                     </Grid>
                 )}

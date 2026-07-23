@@ -18,7 +18,7 @@ import { Typography } from 'doodle-ui';
 import { FC } from 'react';
 
 const Opsec: FC = () => {
-    return <Typography variant='body2'>Reading properties from LDAP is an extremely low risk operation.</Typography>;
+    return <Typography variant='body2'>从 LDAP 读取属性是极其低风险的操作。</Typography>;
 };
 
 export default Opsec;

@@ -34,8 +34,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName }) => {
             </Typography>
             <Typography variant='body1'>Trust Edge Properties</Typography>
             <Typography variant='body2'>
-                BloodHound stores the following properties for SameForestTrust edges (listed under Relationship
-                Information):
+                BloodHound 为 SameForestTrust Edge 存储以下属性（列在关系信息下）：
             </Typography>
             <Typography variant='body2'>
                 <b>Spoof SID History Blocked</b>

@@ -39,12 +39,12 @@ const EdgeObjectInformation: FC<EdgeObjectInformationProps> = ({ selectedEdge, s
     }, [previousId, selectedEdge.relationship_id, setIsObjectInfoPanelOpen]);
 
     const sourceNodeField: EntityField = {
-        label: 'Source Node:',
+        label: '源节点：',
         value: sourceNode?.properties.name || sourceNode?.properties.objectid || '',
     };
 
     const targetNodeField: EntityField = {
-        label: 'Target Node:',
+        label: '目标节点：',
         value: targetNode?.properties.name || targetNode?.properties.objectid || '',
     };
 
@@ -56,7 +56,7 @@ const EdgeObjectInformation: FC<EdgeObjectInformationProps> = ({ selectedEdge, s
         }),
     ];
 
-    const sectionLabel = 'Relationship Information';
+    const sectionLabel = '关系信息';
 
     const handleOnChange = () => {
         setIsObjectInfoPanelOpen(!isObjectInfoPanelOpen);

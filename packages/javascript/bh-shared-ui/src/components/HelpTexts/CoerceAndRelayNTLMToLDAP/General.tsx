@@ -32,7 +32,7 @@ const General: FC<EdgeInfoProps> = () => {
             </Typography>
 
             <Typography variant='body2'>
-                Click on Relay Targets to view the domain controllers in the domain that do not require LDAP signing.
+                点击 Relay Targets 查看域中不要求 LDAP 签名的域控制器。
             </Typography>
         </>
     );

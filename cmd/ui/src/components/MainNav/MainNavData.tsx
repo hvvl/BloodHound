@@ -68,7 +68,7 @@ export const useMainNavPrimaryListData = (): MainNavData['primaryList'] => {
 
     const primaryList: MainNavData['primaryList'] = [
         {
-            label: 'Explore',
+            label: '探索',
             icon: <AppIcon.LineChart size={24} />,
             route: routes.ROUTE_EXPLORE,
             testId: 'global_nav-explore',
@@ -76,7 +76,7 @@ export const useMainNavPrimaryListData = (): MainNavData['primaryList'] => {
         ...(areFeatureFlagsLoaded && isTierFlagEnabled
             ? [
                   {
-                      label: 'Privilege Zones',
+                      label: '权限区域',
                       icon: <AppIcon.Diamond size={24} />,
                       route: ROUTE_PRIVILEGE_ZONES,
                       testId: 'global_nav-privilege-zones',
@@ -86,7 +86,7 @@ export const useMainNavPrimaryListData = (): MainNavData['primaryList'] => {
         ...(areFeatureFlagsLoaded && !isTierFlagEnabled
             ? [
                   {
-                      label: 'Group Management',
+                      label: '分组管理',
                       icon: <AppIcon.Diamond size={24} />,
                       route: routes.ROUTE_GROUP_MANAGEMENT,
                       testId: 'global_nav-group-management',
@@ -96,7 +96,7 @@ export const useMainNavPrimaryListData = (): MainNavData['primaryList'] => {
         ...(hasPermissionToUpload
             ? [
                   {
-                      label: 'Quick Upload',
+                      label: '快速上传',
                       icon: <AppIcon.Upload size={24} />,
                       onClick: () => setShowFileIngestDialog(true),
                       testId: 'quick-file-ingest',
@@ -130,19 +130,19 @@ export const useMainNavSecondaryListData = (): MainNavData['secondaryList'] => {
 
     const secondaryList: MainNavData['secondaryList'] = [
         {
-            label: 'Profile',
+            label: '个人资料',
             icon: <AppIcon.User size={24} />,
             route: routes.ROUTE_MY_PROFILE,
             testId: 'global_nav-my-profile',
         },
         {
-            label: 'Download Collectors',
+            label: '下载采集器',
             icon: <AppIcon.Download size={24} />,
             route: routes.ROUTE_DOWNLOAD_COLLECTORS,
             testId: 'global_nav-download-collectors',
         },
         {
-            label: 'Administration',
+            label: '管理',
             icon: <AppIcon.UserCog size={24} />,
             subNav: adminRoutes,
             testId: 'global_nav-administration',
@@ -154,21 +154,21 @@ export const useMainNavSecondaryListData = (): MainNavData['secondaryList'] => {
             testId: 'global_nav-api-explorer',
         },
         {
-            label: 'Docs and Support',
+            label: '文档与支持',
             icon: <AppIcon.FileMagnifyingGlass size={24} />,
             route: routes.LINK_DOCS_AND_SUPPORT,
             target: '_blank',
             testId: 'global_nav-support',
         },
         {
-            label: 'Try BH Enterprise',
+            label: '体验 BloodHound 企业版',
             icon: <AppIcon.BHLogo size={32} className='-mx-1' />,
             route: routes.LINK_BH_ENTERPRISE,
             target: '_blank',
             testId: 'global_nav-bhe',
         },
         {
-            label: 'Dark Mode',
+            label: '深色模式',
             control: (
                 /* 
                  `inert` is a native property that tells screen readers to 
@@ -185,7 +185,7 @@ export const useMainNavSecondaryListData = (): MainNavData['secondaryList'] => {
             testId: 'global_nav-dark-mode',
         },
         {
-            label: 'Log Out',
+            label: '退出登录',
             icon: <AppIcon.Logout size={24} />,
             onClick: handleLogout,
             testId: 'global_nav-logout',

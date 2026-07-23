@@ -21,8 +21,7 @@ const General: FC = () => {
     return (
         <>
             <Typography variant='body2'>
-                Azure provides several systems and mechanisms for granting control of securable objects within Azure
-                Active Directory, including tenant-scoped admin roles, object-scoped admin roles, explicit object
+                Azure 提供了多种系统和机制来授予对 Azure Active Directory 中安全对象的控制权。 Directory, including tenant-scoped admin roles, object-scoped admin roles, explicit object
                 ownership, and API permissions.
             </Typography>
             <Typography variant='body2'>

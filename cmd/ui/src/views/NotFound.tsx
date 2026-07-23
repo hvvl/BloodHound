@@ -42,13 +42,12 @@ const NotFound: React.FC = () => {
     return (
         <LoginPage>
             <Helmet>
-                <title>Page Not Found | {appName}</title>
+                <title>页面未找到 | {appName}</title>
             </Helmet>
             <div className='flex flex-col gap-6'>
                 <Alert severity='warning'>
-                    <AlertTitle>404 - Page not found</AlertTitle>
-                    There is no page associated with this route. Please contact your system administrator for
-                    assistance.
+                    <AlertTitle>404 - 页面未找到</AlertTitle>
+                    此路由没有关联的页面。请联系系统管理员获取帮助。
                 </Alert>
 
                 <Button
@@ -59,7 +58,7 @@ const NotFound: React.FC = () => {
                     size='large'
                     type='button'
                     className='w-full'>
-                    Go to Explore
+                    前往探索
                 </Button>
             </div>
         </LoginPage>

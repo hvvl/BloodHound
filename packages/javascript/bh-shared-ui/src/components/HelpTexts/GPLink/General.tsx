@@ -26,7 +26,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName, targetType }) => {
                 The GPO {sourceName} is linked to the {typeFormat(targetType)} {targetName}.
             </Typography>
             <Typography variant='body2'>
-                A linked GPO applies its settings to objects in the linked container.
+                链接的 GPO 会将其设置应用到所链接容器中的对象。
             </Typography>
         </>
     );

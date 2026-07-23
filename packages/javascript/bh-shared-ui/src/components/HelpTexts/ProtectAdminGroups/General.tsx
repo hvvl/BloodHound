@@ -30,8 +30,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName, targetType }) => {
                 default.
             </Typography>
             <Typography variant='body2'>
-                Any Owner or DACL abuse on {targetName} will be overwritten by the ProtectAdminGroups task on its next
-                cycle. Any modifications to the Owner or DACL of {sourceName} will be tattooed on all protected objects
+                对 {targetName} 的任何 Owner 或 DACL 滥用将在 ProtectAdminGroups 任务的下一个周期中被覆盖。 Any modifications to the Owner or DACL of {sourceName} will be tattooed on all protected objects
                 in that domain during the next ProtectAdminGroups task cycle.
             </Typography>
         </>

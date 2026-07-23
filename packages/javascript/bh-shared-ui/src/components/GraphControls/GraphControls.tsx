@@ -97,7 +97,7 @@ function GraphControls<T extends readonly string[]>(props: GraphControlsProps<T>
                             {/* tooltip won't show without this wrapper div for some reason */}
                             <div>
                                 <GraphButton
-                                    aria-label='Reset Graph'
+                                    aria-label='重置图形'
                                     onClick={onReset}
                                     displayText={<FontAwesomeIcon aria-label='reset graph view' icon={faCropAlt} />}
                                     data-testid='explore_graph-controls_reset-button'
@@ -106,34 +106,34 @@ function GraphControls<T extends readonly string[]>(props: GraphControlsProps<T>
                         </TooltipTrigger>
                         <TooltipPortal>
                             <TooltipContent className='dark:bg-neutral-dark-5 border-0'>
-                                <span>Reset Graph</span>
+                                <span>重置图形</span>
                             </TooltipContent>
                         </TooltipPortal>
                     </TooltipRoot>
                 </TooltipProvider>
 
-                <GraphMenu label={`${!showNodeLabels || !showEdgeLabels ? 'Show' : 'Hide'} Labels`}>
+                <GraphMenu label={`${!showNodeLabels || !showEdgeLabels ? '显示' : '隐藏'}标签`}>
                     <MenuItem
                         aria-label={`${!showEdgeLabels ? 'Show' : 'Hide'} All Labels Toggle`}
                         data-testid='explore_graph-controls_all-labels-toggle'
                         onClick={handleToggleAllLabels}>
-                        {!showNodeLabels || !showEdgeLabels ? 'Show' : 'Hide'} All Labels
+                        {!showNodeLabels || !showEdgeLabels ? '显示' : '隐藏'}全部标签
                     </MenuItem>
                     <MenuItem
                         aria-label={`${showNodeLabels ? 'Hide' : 'Show'} Node Labels Toggle`}
                         data-testid='explore_graph-controls_node-labels-toggle'
                         onClick={onToggleNodeLabels}>
-                        {showNodeLabels ? 'Hide' : 'Show'} Node Labels
+                        {showNodeLabels ? '隐藏' : '显示'}节点标签
                     </MenuItem>
                     <MenuItem
                         aria-label={`${showEdgeLabels ? 'Hide' : 'Show'} Edge Labels Toggle`}
                         data-testid='explore_graph-controls_edge-labels-toggle'
                         onClick={onToggleEdgeLabels}>
-                        {showEdgeLabels ? 'Hide' : 'Show'} Edge Labels
+                        {showEdgeLabels ? '隐藏' : '显示'} Edge 标签
                     </MenuItem>
                 </GraphMenu>
 
-                <GraphMenu label='Layout'>
+                <GraphMenu label='布局'>
                     {layoutOptions.map((buttonLabel) => {
                         const tableViewIsSelected = isExploreTableSelected && searchType === 'cypher';
                         const isSelected = tableViewIsSelected
@@ -153,16 +153,16 @@ function GraphControls<T extends readonly string[]>(props: GraphControlsProps<T>
                     })}
                 </GraphMenu>
 
-                <GraphMenu label='Export'>
+                <GraphMenu label='导出'>
                     <MenuItem onClick={() => exportToJson(jsonData)} disabled={isEmpty(jsonData)}>
                         JSON
                     </MenuItem>
                 </GraphMenu>
 
                 <GraphButton
-                    aria-label='Search node in results'
+                    aria-label='在结果中搜索节点'
                     onClick={() => setIsCurrentSearchOpen(true)}
-                    displayText={'Search'}
+                    displayText={'搜索'}
                     disabled={isCurrentSearchOpen}
                     data-testid='explore_graph-controls_search-current-results'
                 />

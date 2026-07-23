@@ -22,7 +22,7 @@ import { groupSpecialFormat, typeFormat } from '../utils';
 const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName, targetType }) => {
     return (
         <Typography variant='body2'>
-            {groupSpecialFormat(sourceType, sourceName)} the capability to change the {typeFormat(targetType)}{' '}
+            {groupSpecialFormat(sourceType, sourceName)} 更改以下对象的能力 {typeFormat(targetType)}{' '}
             {targetName}'s password without knowing that user's current password.
         </Typography>
     );

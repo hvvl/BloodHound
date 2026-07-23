@@ -30,7 +30,7 @@ const FileUploadDialog: React.FC<{
     onClose: () => void;
     headerText?: ReactNode;
     description?: ReactNode;
-}> = ({ open, onClose: onCloseProp, headerText = 'Upload Files', description }) => {
+}> = ({ open, onClose: onCloseProp, headerText = '上传文件', description }) => {
     const { checkPermission } = usePermissions();
     const hasPermissionToUpload = checkPermission(Permission.GRAPH_DB_INGEST_MANAGE);
 
@@ -85,7 +85,7 @@ const FileUploadDialog: React.FC<{
                 {uploadMessage && <div className='mt-2 mb-2 font-normal'>{uploadMessage}</div>}
                 <AppLink to='/administration/file-ingest' onClick={onClose}>
                     <div className='text-center font-normal my-2 p-2 hover:bg-neutral-5 rounded-md'>
-                        View File Ingest History
+                        查看文件导入历史
                     </div>
                 </AppLink>
             </DialogTitle>
@@ -109,20 +109,20 @@ const FileUploadDialog: React.FC<{
 
                 {currentlyUploading && (
                     <div>
-                        <p>Upload in progress.</p>
-                        <p>You can continue using the platform&mdash;we will alert you once the upload is complete.</p>
+                        <p>正在上传中。</p>
+                        <p>您可以继续使用平台&mdash;上传完成后我们会通知您。</p>
                     </div>
                 )}
             </DialogContent>
             <DialogActions>
                 <Button variant='secondary' onClick={onClose} data-testid='confirmation-dialog_button-no'>
-                    {uploadDialogDisabled ? 'Uploading Files' : 'Close'}
+                    {uploadDialogDisabled ? '上传中' : '关闭'}
                 </Button>
                 <Button
                     disabled={submitDialogDisabled}
                     onClick={handleSubmit}
                     data-testid='confirmation-dialog_button-yes'>
-                    Upload
+                    上传
                 </Button>
             </DialogActions>
         </Dialog>

@@ -63,7 +63,7 @@ const PathfindingSearch = ({
                     handleNodeSelected={handleSourceNodeSelected}
                     inputValue={sourceSearchTerm}
                     selectedItem={sourceSelectedItem || null}
-                    labelText='Start Node'
+                    labelText='起始节点'
                 />
                 <ExploreSearchCombobox
                     autoFocus={!!(sourceSearchTerm && !destinationSearchTerm)}
@@ -71,7 +71,7 @@ const PathfindingSearch = ({
                     handleNodeSelected={handleDestinationNodeSelected}
                     inputValue={destinationSearchTerm}
                     selectedItem={destinationSelectedItem || null}
-                    labelText='Destination Node'
+                    labelText='目标节点'
                 />
             </div>
 

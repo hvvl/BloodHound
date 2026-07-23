@@ -52,14 +52,14 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
             <Grid container spacing={4} justifyContent='center'>
                 <Grid item xs={12}>
                     <Alert severity='info'>
-                        <AlertTitle>Your Account Password Has Expired</AlertTitle>
-                        Please provide a new password for this account to continue.
+                        <AlertTitle>您的账户密码已过期</AlertTitle>
+                        请为此账户提供新密码以继续。
                     </Alert>
                 </Grid>
                 {passwordTouched && !testPassword(password) && (
                     <Grid item xs={12}>
                         <Alert severity='error'>
-                            <AlertTitle>Password Requirements</AlertTitle>
+                            <AlertTitle>密码要求</AlertTitle>
                             <ul>
                                 {PASSWD_REQS.map((req, i) => (
                                     <li key={i}>{req}</li>
@@ -72,7 +72,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                     <TextField
                         id='currentPassword'
                         name='currentPassword'
-                        label='Expired password'
+                        label='已过期的密码'
                         type='password'
                         fullWidth
                         variant='outlined'
@@ -80,7 +80,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                         error={currentPasswordTouched && currentPassword === ''}
                         onChange={(e) => setCurrentPassword(e.target.value)}
                         helperText={
-                            currentPasswordTouched && currentPassword === '' ? 'Expired password is required' : null
+                            currentPasswordTouched && currentPassword === '' ? '请输入已过期的密码' : null
                         }
                         onBlur={() => setCurrentPasswordTouched(true)}
                         autoFocus
@@ -90,7 +90,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                     <TextField
                         id='password'
                         name='password'
-                        label='New Password'
+                        label='新密码'
                         type='password'
                         fullWidth
                         variant='outlined'
@@ -99,7 +99,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                         onChange={(e) => setPassword(e.target.value)}
                         helperText={
                             passwordTouched && password === currentPassword
-                                ? 'New password must not match expired password'
+                                ? '新密码不能与已过期的密码相同'
                                 : null
                         }
                         onBlur={() => setPasswordTouched(true)}
@@ -109,7 +109,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                     <TextField
                         id='confirmPassword'
                         name='confirmPassword'
-                        label='New Password Confirmation'
+                        label='确认新密码'
                         type='password'
                         fullWidth
                         variant='outlined'
@@ -119,14 +119,14 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                         error={confirmPasswordTouched && password !== confirmPassword}
                         helperText={
                             confirmPasswordTouched && password !== confirmPassword
-                                ? 'New password does not match'
+                                ? '新密码不匹配'
                                 : null
                         }
                     />
                 </Grid>
                 <Grid item xs={8}>
                     <Button size='large' type='submit' style={{ width: '100%' }} disabled={loading}>
-                        {loading ? 'Resetting Password' : 'Reset Password'}
+                        {loading ? '正在重置密码' : '重置密码'}
                     </Button>
                     <Box mt={2}>
                         <Button
@@ -136,7 +136,7 @@ const PasswordResetForm: React.FC<PasswordResetFormProps> = ({ onSubmit, onCance
                             onClick={handleCancel}
                             style={{ width: '100%' }}
                             disabled={loading}>
-                            Return to Login
+                            返回登录
                         </Button>
                     </Box>
                 </Grid>

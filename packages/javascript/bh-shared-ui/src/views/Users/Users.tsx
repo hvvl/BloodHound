@@ -61,7 +61,7 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
     const effect: React.EffectCallback = () => {
         if (!hasPermission) {
             addNotification(
-                `Your user role does not grant permission for managing users. Please contact your administrator for details.`,
+                `您的用户角色没有管理用户的权限。请联系管理员了解详情。`,
                 notificationKey,
                 {
                     persist: true,
@@ -83,7 +83,7 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
 
     const createUserMutation = useMutation((newUser: CreateUserRequest) => apiClient.createUser(newUser), {
         onSuccess: () => {
-            addNotification('User created successfully!', 'createUserSuccess');
+            addNotification('用户创建成功！', 'createUserSuccess');
             listUsersQuery.refetch();
         },
     });
@@ -92,7 +92,7 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
         (updatedUser: UpdateUserRequest) => apiClient.updateUser(selectedUserId!, updatedUser),
         {
             onSuccess: (response, updatedUser) => {
-                addNotification('User updated successfully!', 'updateUserSuccess');
+                addNotification('用户更新成功！', 'updateUserSuccess');
                 const selectedUser = find(listUsersQuery.data, (user) => user.id === selectedUserId);
                 // if the user previously had a SSO Provider ID but does not have one after the update then show the
                 // password reset dialog with the "Force Password Reset?" input defaulted to checked
@@ -118,7 +118,7 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
         },
         {
             onSuccess: (_, { disable }) => {
-                addNotification(`User ${disable ? 'disabled' : 'enabled'} successfully!`, 'disableEnableUserSuccess');
+                addNotification(`用户${disable ? '已禁用' : '已启用'}！`, 'disableEnableUserSuccess');
                 listUsersQuery.refetch();
             },
         }
@@ -126,14 +126,14 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
 
     const deleteUserMutation = useMutation((userId: string) => apiClient.deleteUser(userId), {
         onSuccess: () => {
-            addNotification('User deleted successfully!', 'deleteUserSuccess');
+            addNotification('用户删除成功！', 'deleteUserSuccess');
             listUsersQuery.refetch();
         },
     });
 
     const expireUserPasswordMutation = useMutation((userId: string) => apiClient.expireUserAuthSecret(userId), {
         onSuccess: () => {
-            addNotification('User password expired successfully!', 'expireUserPasswordSuccess');
+            addNotification('用户密码已过期！', 'expireUserPasswordSuccess');
         },
     });
 
@@ -142,18 +142,18 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
             apiClient.putUserAuthSecret(userId, payload),
         {
             onSuccess: () => {
-                addNotification('User password updated successfully!', 'updateUserPasswordSuccess');
+                addNotification('用户密码更新成功！', 'updateUserPasswordSuccess');
                 toggleResetUserPasswordDialog();
             },
             onSettled: () => setNeedsPasswordReset(false),
             onError: (error: any) => {
                 if (error.response?.status == 403) {
                     addNotification(
-                        'Current password invalid. Password update failed.',
+                        '当前密码无效。密码更新失败。',
                         'UpdateUserPasswordCurrentPasswordInvalidError'
                     );
                 } else {
-                    addNotification('Password failed to update.', 'UpdateUserPasswordError');
+                    addNotification('密码更新失败。', 'UpdateUserPasswordError');
                 }
             },
         }
@@ -162,14 +162,14 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
     return (
         <>
             <PageWithTitle
-                title='Manage Users'
+                title='用户管理'
                 data-testid='manage-users'
                 pageDescription={
                     <Typography variant='body2'>
-                        BloodHound offers multiple roles with degrees of permissions, providing greater security and
-                        control of your team.
+                        BloodHound 提供多种具有不同权限级别的角色，为您的团队提供更高的安全性和
+                        控制能力。
                         <br />
-                        Learn more about {DocumentationLinks.ManageUsersDocLink}.
+                        了解更多关于 {DocumentationLinks.ManageUsersDocLink} 的信息。
                     </Typography>
                 }>
                 <Box display='flex' justifyContent='flex-end' alignItems='center' minHeight='24px' mb={2}>
@@ -208,8 +208,8 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
 
             <ConfirmationDialog
                 open={enableUserDialogOpen}
-                text={'Are you sure you want to enable this user?'}
-                title={'Enable User'}
+                text={'确定要启用此用户吗？'}
+                title={'启用用户'}
                 onConfirm={() => {
                     disableEnableUserMutation.mutate({ userId: selectedUserId!, disable: false });
                     toggleEnableUserDialog();
@@ -218,8 +218,8 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
             />
             <ConfirmationDialog
                 open={disableUserDialogOpen}
-                text={'Are you sure you want to disable this user?'}
-                title={'Disable User'}
+                text={'确定要禁用此用户吗？'}
+                title={'禁用用户'}
                 onConfirm={() => {
                     disableEnableUserMutation.mutate({ userId: selectedUserId!, disable: true });
                     toggleDisableUserDialog();
@@ -228,8 +228,8 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
             />
             <ConfirmationDialog
                 open={deleteUserDialogOpen}
-                text={'Are you sure you want to delete this user?'}
-                title={'Delete User'}
+                text={'确定要删除此用户吗？'}
+                title={'删除用户'}
                 onConfirm={() => {
                     deleteUserMutation.mutate(selectedUserId!);
                     toggleDeleteUserDialog();
@@ -239,9 +239,9 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
             <ConfirmationDialog
                 open={expireUserPasswordDialogOpen}
                 text={
-                    "Are you sure you want to expire this user's password? This user will be prompted to change their password on next login."
+                    "确定要使此用户的密码过期吗？该用户将在下次登录时被要求修改密码。"
                 }
-                title={'Force Password Reset'}
+                title={'强制密码重置'}
                 onConfirm={() => {
                     expireUserPasswordMutation.mutate(selectedUserId!);
                     toggleExpireUserPasswordDialog();
@@ -268,16 +268,16 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
                         .disenrollMFA(selectedUserId!, { secret })
                         .then(() => {
                             setDisable2FADialogOpen(false);
-                            addNotification('User MFA disabled successfully!', 'disableUserMfaSuccess');
+                            addNotification('用户 MFA 禁用成功！', 'disableUserMfaSuccess');
                             setDisable2FASecret('');
                             listUsersQuery.refetch();
                         })
                         .catch((err) => {
                             if (!isSelfSSOUser && err.status === 400) {
-                                setDisable2FAError('Unable to verify password. Please try again.');
+                                setDisable2FAError('无法验证密码，请重试。');
                             } else {
                                 setDisable2FADialogOpen(false);
-                                addNotification('Unknown error disabling MFA for user', 'disableUserMfaUnknownError');
+                                addNotification('禁用用户 MFA 时发生未知错误', 'disableUserMfaUnknownError');
                             }
                         });
                 }}
@@ -287,8 +287,8 @@ const Users: FC<{ showEnvironmentAccessControls?: boolean }> = ({ showEnvironmen
                 showPasswordConfirmation={!isSelfSSOUser}
                 contentText={
                     isSelfSSOUser
-                        ? 'Are you sure you want to disable MFA for this user?'
-                        : 'Are you sure you want to disable MFA for this user? Please enter your password to confirm.'
+                        ? '确定要为此用户禁用 MFA 吗？'
+                        : '确定要为此用户禁用 MFA 吗？请输入您的密码以确认。'
                 }
             />
             <PasswordDialog

@@ -49,22 +49,22 @@ export const LINK_BH_ENTERPRISE =
 
 export const adminSections: SubNavSection[] = [
     {
-        title: 'Data Collection',
+        title: '数据采集',
         items: [
             {
-                label: 'File Ingest',
+                label: '文件导入',
                 path: ROUTE_ADMINISTRATION_FILE_INGEST,
                 component: lazy(() => import('bh-shared-ui/FileIngest')),
                 adminOnly: false,
             },
             {
-                label: 'Data Quality',
+                label: '数据质量',
                 path: ROUTE_ADMINISTRATION_DATA_QUALITY,
                 component: lazy(() => import('src/views/DataQuality')),
                 adminOnly: false,
             },
             {
-                label: 'Database Management',
+                label: '数据库管理',
                 path: ROUTE_ADMINISTRATION_DB_MANAGEMENT,
                 component: lazy(() => import('src/views/DatabaseManagement')),
                 adminOnly: false,
@@ -72,10 +72,10 @@ export const adminSections: SubNavSection[] = [
         ],
     },
     {
-        title: 'Users',
+        title: '用户',
         items: [
             {
-                label: 'Manage Users',
+                label: '用户管理',
                 path: ROUTE_ADMINISTRATION_MANAGE_USERS,
                 component: lazy(() => import('bh-shared-ui/Users')),
                 adminOnly: false,
@@ -83,10 +83,10 @@ export const adminSections: SubNavSection[] = [
         ],
     },
     {
-        title: 'Authentication',
+        title: '认证',
         items: [
             {
-                label: 'SSO Configuration',
+                label: 'SSO 配置',
                 path: ROUTE_ADMINISTRATION_SSO_CONFIGURATION,
                 component: lazy(() => import('bh-shared-ui/SSOConfiguration')),
                 adminOnly: false,
@@ -94,22 +94,22 @@ export const adminSections: SubNavSection[] = [
         ],
     },
     {
-        title: 'Configuration',
+        title: '配置',
         items: [
             {
-                label: 'BloodHound Configuration',
+                label: 'BloodHound 配置',
                 path: ROUTE_ADMINISTRATION_BLOODHOUND_CONFIGURATION,
                 component: lazy(() => import('src/views/BloodHoundConfiguration')),
                 adminOnly: true,
             },
             {
-                label: 'Early Access Features',
+                label: '早期访问功能',
                 path: ROUTE_ADMINISTRATION_EARLY_ACCESS_FEATURES,
                 component: lazy(() => import('src/views/EarlyAccessFeatures')),
                 adminOnly: false,
             },
             {
-                label: 'OpenGraph Management',
+                label: 'OpenGraph 管理',
                 path: ROUTE_ADMINISTRATION_OPENGRAPH_MANAGEMENT,
                 component: lazy(() => import('bh-shared-ui/OpenGraphManagement')),
                 adminOnly: false,

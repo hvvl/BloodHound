@@ -22,18 +22,16 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName }) => {
     return (
         <>
             <Typography variant='body2'>
-                The user {targetName} has a session on the computer {sourceName}.
+                用户 {targetName} 在计算机上有一个会话 {sourceName}.
             </Typography>
             <Typography variant='body2'>
-                When a user authenticates to a computer, they often leave credentials exposed on the system, which can
-                be retrieved through LSASS injection, token manipulation/theft, or injecting into a user's process.
+                当用户认证到计算机时，他们通常会在系统上留下暴露的凭据，这些凭据可以通过 LSASS 注入、令牌操作/窃取或注入到用户进程中来获取。
             </Typography>
             <Typography variant='body2'>
-                Any user that is an administrator to the system has the capability to retrieve the credential material
-                from memory if it still exists.
+                任何作为系统管理员的用户都有能力从内存中检索凭据材料（如果仍然存在的话）。
             </Typography>
             <Typography variant='body2'>
-                Note: A session does not guarantee credential material is present, only possible.
+                注意：会话不保证凭据材料一定存在，只是可能存在。
             </Typography>
         </>
     );

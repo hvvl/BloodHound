@@ -18,7 +18,7 @@ import { Typography } from 'doodle-ui';
 import { FC } from 'react';
 
 const Opsec: FC = () => {
-    return <Typography variant='body2'>Azure will log any role activation event for any object type.</Typography>;
+    return <Typography variant='body2'>Azure 会记录任何对象类型的任何角色激活事件。</Typography>;
 };
 
 export default Opsec;

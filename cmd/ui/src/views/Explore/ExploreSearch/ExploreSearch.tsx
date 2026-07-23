@@ -60,11 +60,11 @@ const tabMap = {
 
 const tabs = [
     {
-        label: 'Search',
+        label: '搜索',
         icon: faSearch,
     },
     {
-        label: 'Pathfinding',
+        label: '路径搜索',
         icon: faDirections,
     },
     {

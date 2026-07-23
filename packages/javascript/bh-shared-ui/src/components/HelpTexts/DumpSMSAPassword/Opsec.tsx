@@ -21,8 +21,7 @@ const Opsec: FC = () => {
     return (
         <>
             <Typography variant='body2'>
-                Access to registry hives can be monitored and alerted via event ID 4656 (A handle to an object was
-                requested).
+                可以通过事件 ID 4656（请求了对象的句柄）来监控和告警对注册表配置单元的访问。
             </Typography>
         </>
     );

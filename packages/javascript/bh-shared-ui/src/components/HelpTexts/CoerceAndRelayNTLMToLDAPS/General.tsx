@@ -32,8 +32,7 @@ const General: FC<EdgeInfoProps> = () => {
             </Typography>
 
             <Typography variant='body2'>
-                Click on Relay Targets to view the domain controllers in the domain that do not require LDAPS channel
-                binding.
+                点击 Relay Targets 查看域中不要求 LDAPS 通道绑定的域控制器。
             </Typography>
         </>
     );

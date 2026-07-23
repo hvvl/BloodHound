@@ -22,8 +22,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName }) => {
     return (
         <>
             <Typography variant='body2'>
-                Certificates of the certificate template {sourceName} will include the issuance policy {targetName} as a
-                certificate extension.
+                证书模板 {sourceName} 颁发的证书将包含颁发策略 {targetName} 作为证书扩展。
             </Typography>
         </>
     );

@@ -32,12 +32,12 @@ const DisabledUser: React.FC = () => {
     return (
         <LoginPage>
             <Helmet>
-                <title>Account Disabled | {appName}</title>
+                <title>账户已禁用 | {appName}</title>
             </Helmet>
             <div className='flex flex-col gap-8'>
                 <Alert severity='warning'>
-                    <AlertTitle>Your Account Has Been Disabled</AlertTitle>
-                    Please contact your system administrator for assistance.
+                    <AlertTitle>您的账户已被禁用</AlertTitle>
+                    请联系系统管理员获取帮助。
                 </Alert>
 
                 <Button
@@ -49,7 +49,7 @@ const DisabledUser: React.FC = () => {
                     size='large'
                     type='button'
                     className='w-full'>
-                    Back to Login
+                    返回登录
                 </Button>
             </div>
         </LoginPage>

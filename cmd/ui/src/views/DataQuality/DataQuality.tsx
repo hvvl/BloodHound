@@ -54,12 +54,12 @@ const DataQuality: React.FC = () => {
         setDataError(true);
     };
 
-    const environmentErrorMessage = <>Environments unavailable. {dataCollectionMessage}</>;
+    const environmentErrorMessage = <>环境不可用。{dataCollectionMessage}</>;
 
     if (isLoading) {
         return (
             <PageWithTitle
-                title='Data Quality'
+                title='数据质量'
                 data-testid='data-quality'
                 pageDescription={
                     <>
@@ -74,7 +74,7 @@ const DataQuality: React.FC = () => {
     if (!environment?.type || noIdSetForEnvironment) {
         return (
             <PageWithTitle
-                title='Data Quality'
+                title='数据质量'
                 data-testid='data-quality'
                 pageDescription={<QualityAssuranceDescription />}>
                 <Box display='flex' justifyContent='flex-end' alignItems='center' minHeight='24px' mb={2}>
@@ -90,9 +90,8 @@ const DataQuality: React.FC = () => {
                     />
                 </Box>
                 <Alert severity='info'>
-                    <AlertTitle>No Domain or Tenant Selected</AlertTitle>
-                    Select a domain or tenant to view data. If you are unable to select a domain, you may need to run
-                    data collection first. {dataCollectionMessage}
+                    <AlertTitle>未选择域名或租户</AlertTitle>
+                    请选择一个域名或租户以查看数据。如果无法选择域名，您可能需要先执行数据采集。{dataCollectionMessage}
                 </Alert>
             </PageWithTitle>
         );
@@ -100,7 +99,7 @@ const DataQuality: React.FC = () => {
 
     return (
         <PageWithTitle
-            title='Data Quality'
+            title='数据质量'
             data-testid='data-quality'
             pageDescription={<QualityAssuranceDescription />}>
             <Box display='flex' justifyContent='flex-end' alignItems='center' minHeight='24px' mb={2}>
@@ -118,14 +117,14 @@ const DataQuality: React.FC = () => {
             {dataError && (
                 <Box paddingBottom={2}>
                     <Alert severity='warning'>
-                        <AlertTitle>Data Quality Warning</AlertTitle>
-                        It looks like data is incomplete or has not been collected yet. See the{' '}
+                        <AlertTitle>数据质量警告</AlertTitle>
+                        数据似乎不完整或尚未采集。请查看{' '}
                         <Link
                             target='_blank'
                             href={'https://bloodhound.specterops.io/collect-data/overview#bloodhound-ce-collection'}>
-                            Data Collection
+                            数据采集
                         </Link>{' '}
-                        page to view instructions on how to begin data collection.
+                        页面了解如何开始数据采集。
                     </Alert>
                 </Box>
             )}
@@ -142,6 +141,6 @@ export default DataQuality;
 
 const QualityAssuranceDescription = () => (
     <Typography variant='body2'>
-        Understand the data collected within BloodHound broken down by environment and principal type.
+        了解 BloodHound 中采集的数据，按环境和主体类型分类展示。
     </Typography>
 );

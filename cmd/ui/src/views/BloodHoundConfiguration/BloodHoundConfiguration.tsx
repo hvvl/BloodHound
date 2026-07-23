@@ -19,20 +19,20 @@ import { AnalyzeNowConfiguration, CitrixRDPConfiguration, PageWithTitle } from '
 const BloodHoundConfiguration = () => {
     return (
         <PageWithTitle
-            title='BloodHound Configuration'
+            title='BloodHound 配置'
             pageDescription={
                 <p className='text-sm'>
-                    Modify the configuration of your BloodHound tenant. See our{' '}
+                    修改您的 BloodHound 租户配置。请参阅我们的{' '}
                     <a
                         className='text-link underline'
                         href='https://bloodhound.specterops.io/analyze-data/bloodhound-gui/configuration'>
-                        documentation
+                        文档
                     </a>{' '}
-                    for more details on each option.
+                    了解各选项的详细信息。
                 </p>
             }>
             <div className='flex flex-col gap-6 mt-4'>
-                <AnalyzeNowConfiguration description='This will re-run analysis in the BloodHound environment, recreating all Attack Paths that exist as a result of complex configurations.' />
+                <AnalyzeNowConfiguration description='此操作将重新运行 BloodHound 环境中的分析，重新生成由复杂配置导致的所有攻击路径。' />
                 <CitrixRDPConfiguration />
             </div>
         </PageWithTitle>

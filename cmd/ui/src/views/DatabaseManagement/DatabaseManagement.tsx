@@ -246,7 +246,7 @@ const DatabaseManagement: FC = () => {
     const effect: React.EffectCallback = () => {
         if (!hasPermission) {
             addNotification(
-                `Your user role does not allow managing the database. Please contact your administrator for details.`,
+                `您的用户角色不允许管理数据库。请联系管理员了解详情。`,
                 notificationKey,
                 {
                     persist: true,
@@ -286,32 +286,31 @@ const DatabaseManagement: FC = () => {
 
     return (
         <PageWithTitle
-            title='Database Management'
+            title='数据库管理'
             data-testid='database-management'
             pageDescription={
                 <Typography variant='body2'>
-                    Manage your BloodHound data. Select from the options below which data should be deleted.
+                    管理您的 BloodHound 数据。请从下方选项中选择要删除的数据。
                 </Typography>
             }>
             <Box>
                 <Alert severity='warning'>
-                    <strong>Caution: </strong> This change is irreversible and will delete data from your environment.
+                    <strong>注意：</strong>此操作不可逆，将删除您环境中的数据。
                 </Alert>
 
                 <Box display='flex' flexDirection='column' alignItems='start'>
                     <FormControl variant='standard' error={state.noSelectionError || state.mutationError}>
-                        {state.noSelectionError ? <Alert severity='error'>Please make a selection.</Alert> : null}
+                        {state.noSelectionError ? <Alert severity='error'>请至少选择一项。</Alert> : null}
                         {state.mutationError ? (
                             <Alert severity='error'>
                                 {state.mutationErrorMessage
                                     ? state.mutationErrorMessage
-                                    : 'There was an error processing your request.'}
+                                    : '处理您的请求时出现错误。'}
                             </Alert>
                         ) : null}
                         {state.showSuccessMessage ? (
                             <Alert severity='info'>
-                                Deletion of the data is under way. Depending on data volume, this may take some time to
-                                complete.
+                                数据删除正在进行中。根据数据量的大小，这可能需要一些时间才能完成。
                             </Alert>
                         ) : null}
 
@@ -328,7 +327,7 @@ const DatabaseManagement: FC = () => {
                                 }
                             />
                             <FormControlLabel
-                                label='Custom High Value selectors'
+                                label='自定义高价值选择器'
                                 control={
                                     <Checkbox
                                         checked={deleteCustomHighValueSelectors}
@@ -339,7 +338,7 @@ const DatabaseManagement: FC = () => {
                                 }
                             />
                             <FormControlLabel
-                                label='All asset group selectors'
+                                label='所有资产组选择器'
                                 control={
                                     <Checkbox
                                         checked={deleteAllAssetGroupSelectors}
@@ -350,7 +349,7 @@ const DatabaseManagement: FC = () => {
                                 }
                             />
                             <FormControlLabel
-                                label='File ingest log history'
+                                label='文件导入日志历史'
                                 control={
                                     <Checkbox
                                         checked={deleteFileIngestHistory}
@@ -361,7 +360,7 @@ const DatabaseManagement: FC = () => {
                                 }
                             />
                             <FormControlLabel
-                                label='Data quality history'
+                                label='数据质量历史'
                                 control={
                                     <Checkbox
                                         checked={deleteDataQualityHistory}
@@ -375,7 +374,7 @@ const DatabaseManagement: FC = () => {
                     </FormControl>
 
                     <Button disabled={!hasPermission} onClick={() => dispatch({ type: 'open_dialog' })}>
-                        Delete
+                        删除
                     </Button>
                 </Box>
             </Box>
@@ -389,8 +388,8 @@ const DatabaseManagement: FC = () => {
                     dispatch({ type: 'close_dialog' });
                     handleMutation();
                 }}
-                itemName='data from the current environment'
-                itemType='environment data'
+                itemName='当前环境的数据'
+                itemType='环境数据'
             />
         </PageWithTitle>
     );

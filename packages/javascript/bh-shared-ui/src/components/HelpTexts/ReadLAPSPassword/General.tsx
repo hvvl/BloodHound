@@ -23,31 +23,30 @@ const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName }) => {
     return (
         <>
             <Typography variant='body2'>
-                {groupSpecialFormat(sourceType, sourceName)} the ability to read the password set by Local Administrator
-                Password Solution (LAPS) on the computer {targetName}.
+                {groupSpecialFormat(sourceType, sourceName)} 读取计算机上由本地管理员密码解决方案 (LAPS) 设置的密码的能力 {targetName}.
             </Typography>
             <Typography variant='body2'>
-                For systems using legacy LAPS, the following AD computer object properties are relevant:
+                对于使用旧版 LAPS 的系统，以下 AD 计算机对象属性是相关的：
                 <br />
-                <b>- ms-Mcs-AdmPwd</b>: The plaintext LAPS password
+                <b>- ms-Mcs-AdmPwd</b>: 明文 LAPS 密码
                 <br />
-                <b>- ms-Mcs-AdmPwdExpirationTime</b>: The LAPS password expiration time
+                <b>- ms-Mcs-AdmPwdExpirationTime</b>: LAPS 密码过期时间
                 <br />
             </Typography>
             <Typography variant='body2'>
-                For systems using Windows LAPS (2023 edition), the following AD computer object properties are relevant:
+                对于使用 Windows LAPS (2023 版) 的系统，以下 AD 计算机对象属性是相关的：
                 <br />
-                <b>- msLAPS-Password</b>: The plaintext LAPS password
+                <b>- msLAPS-Password</b>: 明文 LAPS 密码
                 <br />
-                <b>- msLAPS-PasswordExpirationTime</b>: The LAPS password expiration time
+                <b>- msLAPS-PasswordExpirationTime</b>: LAPS 密码过期时间
                 <br />
-                <b>- msLAPS-EncryptedPassword</b>: The encrypted LAPS password
+                <b>- msLAPS-EncryptedPassword</b>: 加密的 LAPS 密码
                 <br />
-                <b>- msLAPS-EncryptedPasswordHistory</b>: The encrypted LAPS password history
+                <b>- msLAPS-EncryptedPasswordHistory</b>: 加密的 LAPS 密码 history
                 <br />
-                <b>- msLAPS-EncryptedDSRMPassword</b>: The encrypted Directory Services Restore Mode (DSRM) password
+                <b>- msLAPS-EncryptedDSRMPassword</b>: 加密的目录服务还原模式 (DSRM) 密码
                 <br />
-                <b>- msLAPS-EncryptedDSRMPasswordHistory</b>: The encrypted DSRM password history
+                <b>- msLAPS-EncryptedDSRMPasswordHistory</b>: 加密的 DSRM 密码历史
                 <br />
             </Typography>
         </>

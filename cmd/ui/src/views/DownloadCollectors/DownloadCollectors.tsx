@@ -45,7 +45,7 @@ const DownloadCollectors = () => {
             .catch((err) => {
                 console.error(err);
                 dispatch(
-                    addSnackbar('This file could not be downloaded. Please try again.', 'downloadCollectorFailure', {
+                    addSnackbar('文件下载失败，请重试。', 'downloadCollectorFailure', {
                         autoHideDuration: null,
                     })
                 );
@@ -65,7 +65,7 @@ const DownloadCollectors = () => {
                 console.error(err);
                 dispatch(
                     addSnackbar(
-                        'This file could not be downloaded. Please try again.',
+                        '文件下载失败，请重试。',
                         'downloadCollectorChecksumFailure',
                         { autoHideDuration: null }
                     )
@@ -76,26 +76,26 @@ const DownloadCollectors = () => {
     /* Implementation */
     return (
         <PageWithTitle
-            title='Download Collectors'
+            title='下载采集器'
             data-testid='download-collectors'
             pageDescription={
                 openHoundEnabled?.enabled ? (
                     <Typography variant='body2'>
-                        To get started, collect data using SharpHound, AzureHound, or OpenHound.
+                        首先，使用 SharpHound、AzureHound 或 OpenHound 采集数据。
                         <br />
-                        BloodHound CE supports {DocumentationLinks.sharpHoundCELink},{' '}
-                        {DocumentationLinks.azureHoundCELink}, and{' '}
+                        BloodHound CE 支持 {DocumentationLinks.sharpHoundCELink}、{' '}
+                        {DocumentationLinks.azureHoundCELink} 和{' '}
                         <Link target='_blank' data-testid='download-collectors-openhound-link' href={openHoundHref}>
                             OpenHound
                         </Link>
-                        .
+                        。
                     </Typography>
                 ) : (
                     <Typography variant='body2'>
-                        To get started, collect data using SharpHound or AzureHound.
+                        首先，使用 SharpHound 或 AzureHound 采集数据。
                         <br />
-                        BloodHound CE supports both {DocumentationLinks.sharpHoundCELink} and{' '}
-                        {DocumentationLinks.azureHoundCELink} collectors.
+                        BloodHound CE 同时支持 {DocumentationLinks.sharpHoundCELink} 和{' '}
+                        {DocumentationLinks.azureHoundCELink} 采集器。
                     </Typography>
                 )
             }>
@@ -104,9 +104,7 @@ const DownloadCollectors = () => {
                     azureHoundCollectorsQuery.isError ||
                     sharpHoundCollectorsQuery.data?.data.versions.length === 0) && (
                     <Alert severity='warning'>
-                        A browser extension (such as an ad blocker or other privacy extension) may prevent download
-                        links on this page from being displayed. Pause or disable your browser extensions and then
-                        refresh this page.
+                        浏览器扩展（如广告拦截器或其他隐私扩展）可能会阻止此页面上的下载链接显示。请暂停或禁用浏览器扩展，然后刷新此页面。
                     </Alert>
                 )}
                 <Box>
@@ -125,7 +123,7 @@ const DownloadCollectors = () => {
                     ) : sharpHoundCollectorsQuery.isError ||
                       sharpHoundCollectorsQuery.data?.data.versions.length === 0 ? (
                         <Typography variant='body1'>
-                            There are currently no versions of SharpHound available for download
+                            当前没有可用的 SharpHound 版本可供下载
                         </Typography>
                     ) : (
                         <CollectorCardList
@@ -159,7 +157,7 @@ const DownloadCollectors = () => {
                     ) : azureHoundCollectorsQuery.isError ||
                       azureHoundCollectorsQuery.data!.data.versions.length === 0 ? (
                         <Typography variant='body1'>
-                            There are currently no versions of AzureHound available for download
+                            当前没有可用的 AzureHound 版本可供下载
                         </Typography>
                     ) : (
                         <CollectorCardList
@@ -184,7 +182,7 @@ const DownloadCollectors = () => {
                             <Box p={2}>
                                 <Typography variant='body1'>
                                     <Link href={openHoundHref} target='_blank'>
-                                        Download OpenHound on Docker Hub
+                                        在 Docker Hub 上下载 OpenHound
                                     </Link>
                                 </Typography>
                             </Box>

@@ -30,10 +30,10 @@ type UserStatus = 'Deleted' | 'Disabled' | 'Active';
 
 const getUserStatusText = (user: any): UserStatus => {
     if (user.deleted_at.Valid) {
-        return 'Deleted';
+        return '已删除';
     } else if (user.is_disabled) {
-        return 'Disabled';
-    } else return 'Active';
+        return '已禁用';
+    } else return '正常';
 };
 
 type UsersTableProps = {
@@ -62,14 +62,14 @@ const UsersTable: FC<UsersTableProps> = ({
     const theme = useTheme();
 
     const usersTableHeaders: Header[] = [
-        { label: 'Username' },
-        { label: 'Email' },
-        { label: 'Name' },
-        { label: 'Created' },
-        { label: 'Role' },
-        { label: 'Status' },
-        { label: 'Auth Method' },
-        { label: 'Action Menu', alignment: 'right' as const, srOnly: true },
+        { label: '用户名' },
+        { label: '邮箱' },
+        { label: '姓名' },
+        { label: '创建时间' },
+        { label: '角色' },
+        { label: '状态' },
+        { label: '认证方式' },
+        { label: '操作菜单', alignment: 'right' as const, srOnly: true },
     ];
 
     const getSelfQuery = useSelf();
@@ -94,8 +94,8 @@ const UsersTable: FC<UsersTableProps> = ({
         if (user.sso_provider_id)
             return <span>{`SSO: ${SSOProvidersMap[user.sso_provider_id]?.name || user.sso_provider_id}`}</span>;
         if (user.AuthSecret?.totp_activated)
-            return <span style={{ whiteSpace: 'pre-wrap' }}>{'Username / Password\nMFA Enabled'}</span>;
-        return <span>Username / Password</span>;
+            return <span style={{ whiteSpace: 'pre-wrap' }}>{'用户名 / 密码\n已启用 MFA'}</span>;
+        return <span>用户名 / 密码</span>;
     };
 
     const usersTableRows = listUsersQuery.data?.map((user, index) => {
@@ -112,7 +112,7 @@ const UsersTable: FC<UsersTableProps> = ({
                 {user.email_address}
                 {isNonUniqueEmail ? (
                     <Tooltip
-                        title='Duplicate email detected, unique user emails are required and will be enforced by the database in the following release.'
+                        title='检测到重复邮箱，系统将要求用户邮箱唯一，下一版本将由数据库强制执行。'
                         placement='top-start'>
                         <FontAwesomeIcon
                             icon={faWarning}

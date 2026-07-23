@@ -47,7 +47,7 @@ const PasswordReset: React.FC = () => {
     return (
         <LoginPage>
             <Helmet>
-                <title>Password Expired | {appName}</title>
+                <title>密码已过期 | {appName}</title>
             </Helmet>
             <PasswordResetForm
                 onSubmit={handleSubmit}

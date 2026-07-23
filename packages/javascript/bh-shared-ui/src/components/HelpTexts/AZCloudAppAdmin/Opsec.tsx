@@ -20,7 +20,7 @@ import { FC } from 'react';
 const Opsec: FC = () => {
     return (
         <Typography variant='body2'>
-            Auzre will create a log event whenever a new secret is created for a service principal.
+            每当为 Service Principal 创建新机密时，Azure 会创建日志事件。
         </Typography>
     );
 };

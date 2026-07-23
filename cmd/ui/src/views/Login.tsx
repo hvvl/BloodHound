@@ -43,7 +43,7 @@ const Login: React.FC = () => {
 
     const title = (
         <Helmet>
-            <title>Login | {appName}</title>
+            <title>登录 | {appName}</title>
         </Helmet>
     );
 

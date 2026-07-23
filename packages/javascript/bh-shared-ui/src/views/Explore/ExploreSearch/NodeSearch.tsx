@@ -30,7 +30,7 @@ const NodeSearch = ({ nodeSearchState }: { nodeSearchState: NodeSearchState }) =
     return (
         <ExploreSearchCombobox
             autoFocus
-            labelText={'Search Nodes'}
+            labelText={'搜索节点'}
             inputValue={searchTerm}
             selectedItem={selectedItem || null}
             handleNodeEdited={editSourceNode}

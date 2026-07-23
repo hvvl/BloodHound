@@ -67,7 +67,7 @@ export const EarlyAccessFeatureToggle: React.FC<{
                             {flag.enabled ? (
                                 <FontAwesomeIcon style={{ marginRight: '8px' }} icon={faCheckCircle} fixedWidth />
                             ) : null}
-                            <Typography>{flag.enabled ? 'Enabled' : 'Disabled'}</Typography>
+                            <Typography>{flag.enabled ? '已启用' : '已禁用'}</Typography>
                         </div>
                     </Button>
                 </div>
@@ -89,10 +89,10 @@ export const EarlyAccessFeaturesWarningDialog: React.FC<{
                 //@ts-ignore
                 'data-testid': 'early-access-features-warning-dialog',
             }}>
-            <DialogTitle>Heads up!</DialogTitle>
+            <DialogTitle>请注意！</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    The features on this page are under active development and may be unstable, broken, or incomplete.
+                    此页面上的功能正在积极开发中，可能不稳定、有缺陷或不完整。
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -100,13 +100,13 @@ export const EarlyAccessFeaturesWarningDialog: React.FC<{
                     variant='secondary'
                     onClick={onCancel}
                     data-testid='early-access-features-warning-dialog_button-close'>
-                    {'Take me back'}
+                    {'返回'}
                 </Button>
                 <Button
                     variant='primary'
                     onClick={onConfirm}
                     data-testid='early-access-features-warning-dialog_button-confirm'>
-                    {'I understand, show me the new stuff!'}
+                    {'我已了解，让我看看新功能！'}
                 </Button>
             </DialogActions>
         </Dialog>
@@ -129,7 +129,7 @@ const EarlyAccessFeatures: FC = () => {
     const effect: React.EffectCallback = () => {
         if (!hasPermission) {
             addNotification(
-                `Your role does not grant permission to manage feature flags. Please contact your administrator for details.`,
+                `您的角色没有管理功能标志的权限。请联系管理员了解详情。`,
                 notificationKey,
                 {
                     persist: true,
@@ -146,12 +146,11 @@ const EarlyAccessFeatures: FC = () => {
     return (
         <>
             <PageWithTitle
-                title='Early Access Features'
+                title='早期访问功能'
                 data-testid='early-access-features'
                 pageDescription={
                     <Typography variant='body2'>
-                        Enable or disable features available under early access. These features may be unstable, broken,
-                        or incomplete, but are available for testing.
+                        启用或禁用早期访问功能。这些功能可能不稳定、有缺陷或不完整，但可供测试使用。
                     </Typography>
                 }>
                 {!showWarningDialog &&
@@ -168,15 +167,15 @@ const EarlyAccessFeatures: FC = () => {
                         </div>
                     ) : isError ? (
                         <Alert severity='error'>
-                            <AlertTitle>Could Not Display Early Access Features</AlertTitle>
-                            An unexpected error occurred. Please refresh this page or try again later.
+                            <AlertTitle>无法显示早期访问功能</AlertTitle>
+                            发生意外错误。请刷新此页面或稍后重试。
                         </Alert>
                     ) : data!.filter((flag) => flag.user_updatable).length === 0 ? (
                         <div className='bg-neutral-2'>
                             <div className='p-4'>
-                                <Typography variant='h2'>No Early Access Features Available</Typography>
+                                <Typography variant='h2'>暂无早期访问功能</Typography>
                                 <Typography variant='body1'>
-                                    There are no early access features available at this time. Please check back later.
+                                    目前没有可用的早期访问功能。请稍后再查看。
                                 </Typography>
                             </div>
                         </div>

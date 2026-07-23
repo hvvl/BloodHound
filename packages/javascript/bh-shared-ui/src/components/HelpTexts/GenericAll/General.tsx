@@ -23,13 +23,12 @@ const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName, target
     return (
         <>
             <Typography variant='body2'>
-                {groupSpecialFormat(sourceType, sourceName)} GenericAll permissions to the {typeFormat(targetType)}{' '}
+                {groupSpecialFormat(sourceType, sourceName)} 对以下对象的 GenericAll（完全控制）权限 {typeFormat(targetType)}{' '}
                 {targetName}.
             </Typography>
 
             <Typography variant='body2'>
-                This is also known as full control. This permission allows the trustee to manipulate the target object
-                however they wish.
+                这也被称为完全控制。此权限允许受托方任意操纵目标对象。
             </Typography>
         </>
     );

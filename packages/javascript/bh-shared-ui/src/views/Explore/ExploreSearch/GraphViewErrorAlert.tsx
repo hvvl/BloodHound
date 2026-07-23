@@ -20,8 +20,8 @@ const GraphViewErrorAlert = () => {
     return (
         <Box className='flex justify-center mt-16 mx-8'>
             <Alert severity={'error'}>
-                <AlertTitle>Error</AlertTitle>
-                <p>An unexpected error has occurred. Please refresh the page and try again.</p>
+                <AlertTitle>错误</AlertTitle>
+                <p>发生了意外错误，请刷新页面后重试。</p>
             </Alert>
         </Box>
     );

@@ -29,7 +29,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName }) => {
             </Typography>
 
             <Typography variant='body2'>
-                By adding itself to the group, {sourceName} will gain the same privileges that {targetName} already has.
+                通过将自身添加到组中，{sourceName} 将获得 {targetName} 已拥有的相同权限。
             </Typography>
         </>
     );

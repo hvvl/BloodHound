@@ -21,8 +21,7 @@ const Opsec: FC = () => {
     return (
         <>
             <Typography variant='body2'>
-                When using the PowerView functions, keep in mind that PowerShell v5 introduced several security
-                mechanisms that make it much easier for defenders to see what's going on with PowerShell in their
+                使用 PowerView 函数时，请记住 PowerShell v5 引入了多种安全机制，使防御者更容易看到 PowerShell 在其环境中的活动。
                 network, such as script block logging and AMSI. You can bypass those security mechanisms by downgrading
                 to PowerShell v2, which all PowerView functions support.
             </Typography>
@@ -33,8 +32,7 @@ const Opsec: FC = () => {
             </Typography>
 
             <Typography variant='body2'>
-                Additional opsec considerations depend on the target object and how to take advantage of this
-                permission. Opsec considerations for each abuse primitive are documented on the specific abuse edges and
+                其他 OPSEC 考量取决于目标对象以及如何利用此权限。. Opsec considerations for each abuse primitive are documented on the specific abuse edges and
                 on the BloodHound wiki.
             </Typography>
         </>

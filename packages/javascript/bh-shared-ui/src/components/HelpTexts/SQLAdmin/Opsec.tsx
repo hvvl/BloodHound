@@ -72,7 +72,7 @@ const Opsec: FC = () => {
                 the Windows Application log when Agent and database level configuration changes are made.
             </Typography>
             <Typography variant='body2'>
-                A summary of the what will show up in the logs, along with the TSQL queries for viewing and configuring
+                将在日志中出现的内容的摘要，以及用于查看和配置的 TSQL 查询。
                 audit configurations can be found at
                 <Link
                     target='_blank'
@@ -82,7 +82,7 @@ const Opsec: FC = () => {
                 </Link>
                 .
             </Typography>
-            <Typography variant='body2'>Author: Scott Sutherland</Typography>
+            <Typography variant='body2'>作者：Scott Sutherland</Typography>
         </>
     );
 };

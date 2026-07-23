@@ -23,7 +23,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, sourceType, targetName, target
     return (
         <>
             <Typography variant='body2'>
-                {groupSpecialFormat(sourceType, sourceName)} the ability to modify the owner of the{' '}
+                {groupSpecialFormat(sourceType, sourceName)} 修改以下对象所有者的能力{' '}
                 {typeFormat(targetType)} {targetName}.
             </Typography>
 

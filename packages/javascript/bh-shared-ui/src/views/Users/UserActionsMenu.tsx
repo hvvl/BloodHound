@@ -112,7 +112,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                     <ListItemIcon>
                         <FontAwesomeIcon icon={faUserCheck} />
                     </ListItemIcon>
-                    <ListItemText primary={'Enable User'} />
+                    <ListItemText primary={'启用用户'} />
                 </MenuItem>
             );
         else {
@@ -125,7 +125,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                     <ListItemIcon>
                         <FontAwesomeIcon icon={faUserLock} />
                     </ListItemIcon>
-                    <ListItemText primary={'Disable User'} />
+                    <ListItemText primary={'禁用用户'} />
                 </MenuItem>
             );
         }
@@ -141,7 +141,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
             <IconButton
                 disabled={!hasManagePermission}
                 data-testid='manage-users_user-row-action-menu-button'
-                aria-label='Show user actions'
+                aria-label='显示用户操作'
                 onClick={handleOnOpen}
                 size='large'>
                 <FontAwesomeIcon icon={faBars} />
@@ -164,7 +164,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                         <ListItemIcon>
                             <FontAwesomeIcon icon={faEdit} />
                         </ListItemIcon>
-                        <ListItemText primary='Update User' />
+                        <ListItemText primary='编辑用户' />
                     </MenuItem>
 
                     {showPasswordOptions && (
@@ -176,7 +176,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                             <ListItemIcon>
                                 <FontAwesomeIcon icon={faKey} />
                             </ListItemIcon>
-                            <ListItemText primary='Change Password' />
+                            <ListItemText primary='修改密码' />
                         </MenuItem>
                     )}
 
@@ -189,7 +189,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                             <ListItemIcon>
                                 <FontAwesomeIcon icon={faLock} />
                             </ListItemIcon>
-                            <ListItemText primary='Force Password Reset' />
+                            <ListItemText primary='强制密码重置' />
                         </MenuItem>
                     )}
 
@@ -202,7 +202,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                             <ListItemIcon>
                                 <FontAwesomeIcon icon={faCogs} />
                             </ListItemIcon>
-                            <ListItemText primary='Generate / Revoke API Tokens' />
+                            <ListItemText primary='生成 / 撤销 API 令牌' />
                         </MenuItem>
                     )}
                     {showDisableMfaButton && (
@@ -214,7 +214,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                             <ListItemIcon>
                                 <FontAwesomeIcon icon={faUnlockAlt} />
                             </ListItemIcon>
-                            <ListItemText primary='Disable MFA' />
+                            <ListItemText primary='禁用 MFA' />
                         </MenuItem>
                     )}
 
@@ -229,7 +229,7 @@ const UserActionsMenu: React.FC<UserActionsMenuProps> = ({
                             <ListItemIcon>
                                 <FontAwesomeIcon icon={faTrash} />
                             </ListItemIcon>
-                            <ListItemText primary='Delete User' />
+                            <ListItemText primary='删除用户' />
                         </MenuItem>
                     )}
                 </StyledMenu>

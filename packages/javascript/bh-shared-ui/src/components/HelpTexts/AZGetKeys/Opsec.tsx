@@ -20,7 +20,7 @@ import { FC } from 'react';
 const Opsec: FC = () => {
     return (
         <Typography variant='body2'>
-            Azure will create a new log event for the key vault whenever a secret is accessed.
+            每当访问机密时，Azure 会为 Key Vault 创建新的日志事件。
         </Typography>
     );
 };

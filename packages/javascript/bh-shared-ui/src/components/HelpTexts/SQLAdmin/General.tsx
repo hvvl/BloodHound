@@ -39,7 +39,7 @@ const General: FC<EdgeInfoProps> = ({ sourceName, targetName }) => {
                 Service Principal Names (SPN) as a domain user. In short, when the Database Engine service starts, it
                 attempts to register the SPN, and the SPN is then used to help facilitate Kerberos authentication.
             </Typography>
-            <Typography variant='body2'>Author: Scott Sutherland</Typography>
+            <Typography variant='body2'>作者：Scott Sutherland</Typography>
         </>
     );
 };
